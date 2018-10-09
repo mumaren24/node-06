@@ -1,0 +1,39 @@
+npm i 包名 -g //全局安装包
+
+npm i 包名 -D //安装到本地的开发依赖
+npm i 包名 -S //安装到本地的运行依赖
+
+npm uninstall 包名 //删除包并且删除包在package.json文件里的配置记录
+
+npm init -y //自动创建一个package.json配置文件
+npm i --production 产品上线时候用这个
+ cnpm i express
+创建最基本的服务器
+1导入
+const http = require('http')
+2通过第二部调用方法
+const serve=http.createServer()
+3
+srver.on('request',function(req,res){
+
+   res.end('hellow')
+})
+server.listen(3000,'127.0.0.1',function(){
+  
+   console.log('server running at http://127.0.0.1:3000')
+})
+
+创建服务器基本步骤
+const http = require('http')
+const fs = require('fs')
+var server=http.createServer()
+server.on('request',(req,res)=>{
+    fs.readFile(__dirname+req.url,(err,data)=>{
+        if(err) res.end('404')
+        res.end(data)
+    })
+})
+server.listen(3000,'127.0.0.1',()=>{
+    console.log('server is open')
+})
+    
